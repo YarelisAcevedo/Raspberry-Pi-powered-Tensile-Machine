@@ -12,6 +12,10 @@ from time import sleep
 from hx711 import HX711
 
 GPIO.setwarnings(False)
+
+# Setup pin layout on PI
+GPIO.setmode(GPIO.BOARD)
+
 ############################################################################################
 # Direction pin from controller
 DIR = 10
@@ -21,33 +25,23 @@ STEP = 8
 CW = 1
 CCW = 0
 
-# Setup pin layout on PI
-GPIO.setmode(GPIO.BOARD)
-
 # Establish Pins in software
 GPIO.setup(DIR, GPIO.OUT)
 GPIO.setup(STEP, GPIO.OUT)
 
 
-############################################################################################
+###########################################################################################   
+hx = HX711(6,5)
+hx.set_reference_unit(referenceUnit)
+hx.reset()
+hx.tare()
 
 def Loadcell():
-    GPIO.setmode(GPIO.BOARD)
-    
-    hx = HX711(6,5)
-    hx.set_reference_unit(referenceUnit)
-    hx.reset()
-    hx.tare()
+    val = hx.get_weight(5)
 
-    print("Tare done! Add weight now...")
-
-    while True:
-        val = hx.get_weight(5)
-        print(val)
-
-        hx.power_down()
-        hx.power_up()
-        time.sleep(0.1)
+    hx.power_down()
+    hx.power_up()
+    time.sleep(0.1)
         
     return
     
@@ -59,7 +53,6 @@ T = 16
 E = 26
 
 #set GPIO direction (IN/OUT)
-GPIO.setmode(GPIO.BOARD)
 GPIO.setup(T, GPIO.OUT)
 GPIO.setup(E, GPIO.IN)
 GPIO.setwarnings(False)
