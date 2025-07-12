@@ -25,7 +25,7 @@ To address this, we developed a simple, affordable tensile test machine using ea
 
 🚀 Ready to get started?
 
-👉 [📖 Full Guide: Build & Set Up](https://yarelisacevedo.github.io/tensile-test-machine)
+👉 [📖 Full Guide: Build & Set Up](https://yarelisacevedo.github.io/Raspberry-Pi-powered-Tensile-Machine/)
 
 
 
