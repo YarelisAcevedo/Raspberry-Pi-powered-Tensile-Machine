@@ -1,33 +1,72 @@
-# Tensile Test Machine powered by a Raspberry Pi!
+# 💡 Tensile Test Machine powered by a Raspberry Pi!
 
-A low-cost, open-source tensile testing machine designed to measure the Young’s modulus of soft materials — perfect for classrooms, underfunded labs, or makerspaces. It uses a Raspberry Pi for data acquisition and offers a hands-on introduction to electronics, programming, and materials science.
-
----
-
-🔧 Features
-
-* Measures force and displacement to calculate Young’s modulus
-* Raspberry Pi-powered for real-time data acquisition
-* Designed for educational and experimental use
-* Budget-friendly and easy to build
+A low-cost, open-source tensile testing machine designed to measure the **Young’s modulus** of soft materials — perfect for classrooms, underfunded labs, or makerspaces. It uses a **Raspberry Pi** for data acquisition and offers a hands-on introduction to electronics, programming, and materials science.
 
 ---
 
-📖 Background
+## 🔧 Features
 
-Young's modulus (also known as the elasticity modulus) quantifies how easily a material stretches or deforms under stress. This mechanical property plays a crucial role in the design and construction of everything from buildings to biomedical devices. By understanding how much force a material can tolerate before it deforms permanently, engineers and scientists can create safer and more efficient designs.
-
-While professional-grade tensile testing machines already exist, their high cost often places them out of reach for schools and underfunded laboratories. This limits hands-on learning and exposure to important material science concepts.
-
-To address this, we developed a simple, affordable tensile test machine using easily accessible components, including a Raspberry Pi for data acquisition and control. The system is designed to measure the Young's modulus of soft materials, making it ideal for educational use. Not only does this give students practical experience with physical testing and electronics, but it also introduces programming skills and data analysis — all while keeping the setup budget-friendly and approachable.
+- Measures force and displacement to calculate Young’s modulus  
+- Raspberry Pi-powered for real-time data acquisition  
+- Designed for educational and experimental use  
+- Budget-friendly and easy to build  
 
 ---
 
-🚀 Ready to get started?
+## 📚 Background
 
-👉 [📖 Full Guide: Build & Set Up](https://yarelisacevedo.github.io/Raspberry-Pi-powered-Tensile-Machine/)
+**Young's modulus** (elasticity modulus) describes how a material stretches or deforms under stress. It’s a fundamental property used in engineering and science — from construction to biomedical devices. Measuring it helps us understand how materials behave under force.
 
+Professional-grade tensile testing machines are expensive and inaccessible for many schools and labs. That’s why we built this simplified, affordable version using commonly available parts — including a **Raspberry Pi**.
 
+This project introduces students and makers to:
+- Hands-on mechanical testing  
+- Basic electronics  
+- Python programming  
+- Data collection and analysis  
 
+---
 
+## 🚀 Ready to Get Started?
+
+👉 **[Full Guide: Setting up the Raspberry Pi](https://yarelisacevedo.github.io/Raspberry-Pi-powered-Tensile-Machine/)**
+
+---
+
+## 🔌 Step 1: Update your Raspberry Pi
+
+Before installing anything, make sure your Pi is fully updated:
+
+```bash
+sudo apt update
+sudo apt full-upgrade
+sudo reboot
+```
+
+## 🧰 Step 2: Install Required Libraries for the GUI
+
+Use pip and apt to install all the dependencies:
+
+```bash
+pip install RPi.GPIO PyQt5 matplotlib hx711
+sudo apt-get install python3-rpi.gpio
+```
+
+## 📥 Step 3: Download the GUI Files
+
+If you'd like to save the GUI in your Documents folder:
+
+```bash
+cd ~/Documents
+git clone https://github.com/YarelisAcevedo/Raspberry-Pi-powered-Tensile-Machine.git
+```
+
+## ▶️ Step 4: Run the GUI
+
+Navigate into the GUI folder and start the program:
+
+```bash
+cd Raspberry-Pi-powered-Tensile-Machine/GUI
+python3 main.py
+```
 
