@@ -48,7 +48,9 @@ sudo reboot
 Use pip and apt to install all the dependencies:
 
 ```bash
-pip install RPi.GPIO PyQt5 matplotlib hx711
+sudo apt update
+sudo apt install python3-pyqt5
+pip install RPi.GPIO matplotlib hx711
 sudo apt-get install python3-rpi.gpio
 ```
 
