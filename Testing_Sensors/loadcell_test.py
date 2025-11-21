@@ -38,5 +38,7 @@ def Loadcell():
 print("Testing the LoadCell")
 Loadcell()
 time.sleep(2)
+Loadcell()
+time.sleep(2)
 
 

@@ -4,37 +4,36 @@ import sys
 import time
 
 # GPIO Setup for Ultrasonic Distance Sensor
-T = 23   # Trigger pin
-E = 7    # Echo pin
+T = 24   # Trigger pin
+E = 23    # Echo pin
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(T, GPIO.OUT)
 GPIO.setup(E, GPIO.IN)
 
-#set Trigger to HIGH
-GPIO.output(T, True)
+print("Measuring distance.....")
 
-#set Trigger after 0.01ms to LOW
-time.sleep(0.00001)
-GPIO.output(T, False)
+try:
+	while True:
+		GPIO.output(T, False)
+		time.sleep(0.5)
 
-StartTime = time.time()
-StopTime = time.time()
+		GPIO.output(T, True)
+		time.sleep(0.00001)
+		GPIO.output(T, False)
 
-#save StartTime
-while GPIO.input(E) == 0:
-    StartTime = time.time()
+		while GPIO.input(E) == 0:
+			pulse_start = time.time()
 
-#save time of arrival
-while GPIO.input(E) == 1:
-    StopTime = time.time()
+		while GPIO.input(E) == 1:
+			pulse_end = time.time()
 
-#time difference between start and arrival
-TimeElapsed = StopTime - StartTime
-#multiply with the sonic speed (34300 cm/s
-#and divide by 2
-distance = (TimeElapsed * 34300)/2
+		pulse_duration = pulse_end - pulse_start
+		distance = pulse_duration * 17150
+		distance = round(distance, 2)
+		print("Distance: ", distance, " cm")
 
-print("Testing the distance sensor:")
-print(distance)
+except KeyboardInterrupt:
+	GPIO.cleanup()
+
