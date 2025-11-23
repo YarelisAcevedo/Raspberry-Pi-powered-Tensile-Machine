@@ -3,8 +3,8 @@ from time import sleep
 import threading
 
 # GPIO Setup
-DIR = 10    # Direction pin
-STEP = 8    # Step pin
+DIR = 17    # Direction pin
+STEP = 27    # Step pin
 CW = 1      # Clockwise
 CCW = 0     # Counterclockwise
 
@@ -19,7 +19,7 @@ class MotorControl:
         self.lock = threading.Lock()
         self.thread = None
 
-    def move_motor(self, direction, steps=18000, delay=0.0005):
+    def move_motor(self, direction, steps=200, delay=0.0005):
         """ Moves the motor in the specified direction """
         with self.lock:
             GPIO.output(DIR, direction)

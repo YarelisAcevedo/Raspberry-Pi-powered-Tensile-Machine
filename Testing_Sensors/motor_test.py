@@ -13,7 +13,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(DIR, GPIO.OUT)
 GPIO.setup(STEP, GPIO.OUT)
 
-def run(direction, steps=18000, delay=0.0007):
+def run(direction, steps=200, delay=0.01):
     GPIO.output(DIR, direction)
     sleep(0.5)
 

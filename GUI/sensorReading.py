@@ -5,8 +5,8 @@ from time import sleep
 import threading
 
 # GPIO Setup for Ultrasonic Distance Sensor
-T = 23   # Trigger pin
-E = 7    # Echo pin
+T = 24   # Trigger pin
+E = 23   # Echo pin
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -22,7 +22,7 @@ class SensorReading:
         self.thread = None
 
         # Initialize HX711 load cell
-        self.hx = HX711(6, 5)   # (DT, SCK)
+        self.hx = HX711(5, 6)   # (DT, SCK)
         self.hx.set_reference_unit(1)
         self.hx.reset()
         self.hx.tare()
